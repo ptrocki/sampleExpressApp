@@ -1,0 +1,31 @@
+extends layout
+block content
+    include navbar
+    .container
+      #content
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Lista nieodanacyh terminowo książek
+          .panel-body
+            table.table
+              thead
+                tr
+                  th ID
+                  th Imie
+                  th Nazwisko
+                  th Autor
+                  th Tytuł
+                  th Kara
+                  th Anuluj Karę
+              tbody
+                each punishment in punishments
+                 tr
+                   th(scope='row')=punishment.idrezerwacja
+                   td=punishment.imie
+                   td=punishment.nazwisko
+                   td=punishment.autor
+                   td=punishment.tytul
+                   td #{Math.round(punishment.cena/4)} zł
+                   td
+                    a(href='/deletePunish?id=' + punishment.idrezerwacja)
+                      span.glyphicon.glyphicon-remove(aria-hidden='true')

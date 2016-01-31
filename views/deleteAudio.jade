@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    include navbar
+    .container
+      #content
+        h1 
+           | Czy chcesz usunąć Audiobooka :
+           = ' ' + audiobook.autor 
+        form(method='post')
+            .btn-group
+              a.btn.btn-default(href='http://localhost:3000/audiobooks', role='button') Nie
+              button.btn.btn-primary(type='submit') Tak

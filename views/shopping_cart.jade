@@ -1,0 +1,45 @@
+extends layout
+
+block content
+    include navbar
+    .container
+      #content
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Lista Zakupów urzytkowników
+          .panel-body
+            table.table
+              thead
+                tr
+                  th ID
+                  th Imię
+                  th Nazwisko
+                  th Autor
+                  th Tytuł
+                  th Cena
+                  th Obsłużono
+              tbody
+                each item in shoppingCartItems
+                 tr
+                   th(scope='row')= item.idkoszyk
+                   td=item.imie
+                   td=item.nazwisko
+                   td=item.autor
+                   td=item.tytul
+                   td=item.cena
+                   td
+                    a(href='/deleteOrder?id=' + item.idkoszyk)
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+
+    // /container
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script.
+      window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\\/script>')
+    script(src='js/bootstrap.min.js')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    script(src='assets/js/ie10-viewport-bug-workaround.js')
+

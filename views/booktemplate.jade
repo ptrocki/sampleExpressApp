@@ -1,0 +1,30 @@
+.container
+  #content
+    block mainTitle
+    block form
+    form.form-horizontal(method="post")
+      .form-group.form-group-lg
+        label.col-sm-2.control-label(for='author') Autor
+        .col-xs-4
+          input#author.form-control(name='author',type='text', placeholder='Autor')
+      .form-group.form-group-lg
+        label.col-sm-2.control-label(for='title') Tytuł
+        .col-xs-4
+          input#title.form-control(name='title',type='text', placeholder='Tytuł')
+      .form-group.form-group-lg
+        label.col-sm-2.control-label(for='publisher') Wydawnictwo
+        .col-xs-4
+          input#publisher.form-control(name='publisher',type='text', placeholder='Wydawnictwo')
+      .form-group.form-group-lg
+        label.col-sm-2.control-label(for='year') Rok Wydania
+        .col-xs-4
+          input#year.form-control(name='year',type='text', placeholder='Rok Wydania')
+      .form-group.form-group-lg
+        label.col-sm-2.control-label(for='price') Cena
+        .col-xs-4
+          input#price.form-control(name='price',type='text', placeholder='Cena')
+      .form-group.form-group-lg
+        label.col-sm-2.control-label(for='count') Ilość
+        .col-xs-4
+          input#count.form-control(name='count',type='text', placeholder='Ilość')
+      block button

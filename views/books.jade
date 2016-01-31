@@ -1,0 +1,53 @@
+extends layout
+
+block content
+    include navbar
+    .container
+      #content
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Lista Książek
+          .panel-body
+            table.table
+              thead
+                tr
+                  th ID
+                  th Tytuł
+                  th Autor
+                  th Cena
+                  th Modyfikuj
+                  th Rezerwacja
+                  th Zakup
+              tbody
+                each book in books
+                 tr
+                   th(scope='row')=book.idegzemplarz
+                   td=book.tytul
+                   td=book.autor
+                   td=book.cena
+                   td
+                    a(href='/modifyBook?id=' + book.idegzemplarz)
+                      span.glyphicon.glyphicon-pencil(aria-hidden='true')
+                    a(href='/deleteBook?id=' + book.idegzemplarz)
+                      span.glyphicon.glyphicon-remove(aria-hidden='true')
+                   td 
+                    a(href='/reservation?id=' + book.idegzemplarz)
+                      span.glyphicon.glyphicon-asterisk(aria-hidden='true')
+                   td 
+                    a(href='/buyBook?id=' + book.idegzemplarz)
+                      span.glyphicon.glyphicon-shopping-cart(aria-hidden='true')
+
+            a.btn.btn-default(id='add-new-user',href='/addBook', role='button') Dodaj nową książkę
+
+    // /container
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script.
+      window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\\/script>')
+    script(src='js/bootstrap.min.js')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    script(src='assets/js/ie10-viewport-bug-workaround.js')
+

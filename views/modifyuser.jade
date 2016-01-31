@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    include navbar
+    block mainTitle
+    h1 
+       | Edytuj użytkownika :
+       = ' ' + user.imie + ' ' + user.nazwisko
+    include usertemplate
+        block button
+        button.btn.btn-primary(type='submit', id='add-button') Modyfikuj

@@ -1,0 +1,13 @@
+INSERT INTO `osoba` (`idosoba`, `imie`, `nazwisko`, `wydzial`) VALUES 
+(NULL, 'Anna', 'Pracownik', 0), 
+(NULL, 'Marcin', 'Szyja', 2), 
+(NULL, 'Anna', 'Warcho³', 1), 
+(NULL, 'Mendy', 'Waren', 1), 
+(NULL, 'Piotr', 'Trochowski', 1), 
+(NULL, 'Andrzej', 'Polibuda', 1), 
+(NULL, 'Marcin', 'Wieczko', 1), 
+(NULL, 'Konstanty', 'Kwas', 1)
+
+SET foreign_key_checks = 0;
+DELETE FROM users where id > 45;
+SET foreign_key_checks = 1;

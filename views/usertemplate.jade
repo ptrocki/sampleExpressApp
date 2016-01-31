@@ -1,0 +1,24 @@
+.container
+  #content
+    block mainTitle
+    block form
+    form.form-horizontal(method="post")
+      .form-group.form-group-lg
+        label.col-sm-2.control-label(for='name') Imię
+        .col-xs-4
+          input#name.form-control(name='name',type='text', placeholder='Imię')
+      .form-group.form-group-lg
+        label.col-sm-2.control-label(for='surname') Nazwisko
+        .col-xs-4
+          input#surname.form-control(name='surname',type='text', placeholder='Nazwisko')
+      .form-group.form-group-lg
+        label.col-sm-2.control-label(for='department') Wydział
+        .col-xs-4
+          select#department.form-control(name='department')
+            option(value='-1') Wybierz Wydział
+            option(value='1') Wydział Architektury
+            option(value='2') Wydział Chemiczny
+            option(value='3') Wydział Elektryczny
+            option(value='4') Wydział Elektroniki
+            option(value='5') Wydział Mechaniczny
+      block button

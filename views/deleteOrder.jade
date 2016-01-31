@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    include navbar
+    .container
+      #content
+        h1 
+           | Czy chcesz usunąć zamówienie numer :
+           = ' ' + cart.idkoszyk 
+        form(method='post')
+            .btn-group
+              a.btn.btn-default(href='http://localhost:3000/users', role='button') Nie
+              button.btn.btn-primary(type='submit') Tak

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    include navbar
+    .container
+      #content
+        h1 Czy chcesz usunąć karę
+        form(method='post')
+            .btn-group
+              a.btn.btn-default(href='http://localhost:3000/punishment', role='button') Nie
+              button.btn.btn-primary(type='submit') Tak

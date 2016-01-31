@@ -1,0 +1,47 @@
+extends layout
+
+block content
+    include navbar
+    .container
+      #content
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Lista rezerwacji
+          .panel-body
+            table.table
+              thead
+                tr
+                  th ID
+                  th Tytuł
+                  th Autor
+                  th Data Wypożyczenia
+                  th Data Oddania
+                  th Imię
+                  th Nazwisko
+                  th Oddano
+              tbody
+                each order in orders
+                 tr
+                   th(scope='row')=order.idrezerwacja
+                   td=order.tytul
+                   td=order.autor
+                   td #{moment(order.poczatek).format('YYYY-MM-DD')}
+                   td #{moment(order.koniec).format('YYYY-MM-DD')}
+                   td=order.imie
+                   td=order.nazwisko
+                   td
+                    a(href='returnBook?id=' + order.idrezerwacja)
+                      span.glyphicon.glyphicon-ok(aria-hidden='true')
+
+
+    // /container
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script.
+      window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\\/script>')
+    script(src='js/bootstrap.min.js')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    script(src='assets/js/ie10-viewport-bug-workaround.js')

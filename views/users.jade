@@ -1,0 +1,56 @@
+extends layout
+
+mixin department(number)
+  case number
+    when 1: td Wydział Architektury
+    when 2: td Wydział Chemiczny
+    when 3: td Wydział Elektryczny
+    when 4: td Wydział Elektroniki
+    when 5: td Wydział Mechaniczny
+    default: td Pracownik
+
+block content
+    include navbar
+    .container
+      #content
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Lista Studentów
+          .panel-body
+            table.table
+              thead
+                tr
+                  th ID
+                  th Imię
+                  th Nazwisko
+                  th Wydział
+
+                  th Modyfikuj
+              tbody
+                each user in users
+                 tr
+                   th(scope='row')=user.idosoba
+                   td=user.imie
+                   td=user.nazwisko
+                   +department(user.wydzial)
+
+                   td
+                    a(href='/modifyUser?id=' + user.idosoba)
+                      span.glyphicon.glyphicon-pencil(aria-hidden='true')
+                    a(href='/deleteUser?id=' + user.idosoba)
+                      span.glyphicon.glyphicon-remove(aria-hidden='true')
+
+            a.btn.btn-default(id='add-new-user',href='/adduser', role='button') Dodaj nowego użytkownika
+        
+    // /container
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script.
+      window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\\/script>')
+    script(src='js/bootstrap.min.js')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    script(src='assets/js/ie10-viewport-bug-workaround.js')
+
